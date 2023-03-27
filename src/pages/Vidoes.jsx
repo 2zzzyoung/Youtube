@@ -12,7 +12,9 @@ export default function Videos() {
     data: videos,
   } = useQuery(["videos", keyword], async () => {
     return axios.get(`/videos/${keyword ? "search" : "popular"}.json`)
-      .then((res) => res.data.items)
+      .then((res) => {
+        console.log(res.data.items)
+        return res.data.items})
   });
   return (
     <>
