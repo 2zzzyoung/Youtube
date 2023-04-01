@@ -4,6 +4,7 @@ export default class Youtube {
   constructor(apiClient) {
     this.apiClient = apiClient;
   }
+
   async search (keyword) {
     return keyword ? this.#searchByKeyword(keyword) : this.#mostPopular();
   }
@@ -17,9 +18,9 @@ export default class Youtube {
             type: 'video',
             q: keyword,
         },
-        })
+      })
       .then((res) => res.data.items)
-      .then(items => items.map(item => ({ ...item, id: item.id.videoId })))
+      .then((items) => items.map((item) => ({ ...item, id: item.id.videoId })))
     }
 
   async #mostPopular() {
