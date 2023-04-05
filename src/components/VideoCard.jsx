@@ -8,7 +8,7 @@ export default function VideoCard({ video }) {
   return (
     <li
       onClick={() => {
-        navigate(`videos/watch/${video.id.videoId}`, { state: { video } });
+        navigate(`/videos/watch/${video.id.videoId}`, { state: { video } });
       }}
     >
       <img className='w-full' src={thumbnails.medium.url} alt={title} />
